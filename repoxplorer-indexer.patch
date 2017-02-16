@@ -1,0 +1,20 @@
+diff -uNr bin/repoxplorer-indexer bin/repoxplorer-indexer
+--- bin/repoxplorer-indexer	2017-01-18 16:03:10.000000000 +0000
++++ bin/repoxplorer-indexer	2017-02-17 14:42:43.721760484 +0000
+@@ -16,7 +16,6 @@
+ # limitations under the License.
+ 
+ import imp
+-import sys
+ import time
+ import logging
+ import argparse
+@@ -25,7 +24,7 @@
+ from repoxplorer.indexer.git import indexer
+ from repoxplorer.index import projects
+ 
+-config = '%s/local/share/repoxplorer/config.py' % sys.prefix
++config = '/etc/repoxplorer/config.py'
+ logger = logging.getLogger('indexerDaemon')
+ 
+ parser = argparse.ArgumentParser(description='RepoXplorer indexer')
