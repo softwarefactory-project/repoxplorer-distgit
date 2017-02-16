@@ -1,0 +1,10 @@
+[Unit]
+Description=RepoXplorer indexer daemon
+
+[Service]
+User=root
+Group=root
+ExecStart=/usr/bin/repoxplorer-indexer --forever
+
+[Install]
+WantedBy=multi-user.target
