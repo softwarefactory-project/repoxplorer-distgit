@@ -1,0 +1,9 @@
+[Unit]
+Description=RepoXplorer web ui
+After=syslog.target
+
+[Service]
+ExecStart=/usr/sbin/uwsgi --plugin python --http-socket :51000 --pecan /etc/repoxplorer/config.py
+
+[Install]
+WantedBy=multi-user.target
