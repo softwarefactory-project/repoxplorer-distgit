@@ -1,6 +1,6 @@
 Name:           repoxplorer
 Version:        0.6.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        RepoXplorer is a small stats and charts utility for GIT repositories
 
 License:        ASL 2.0
@@ -88,6 +88,11 @@ exit 0
 %attr(-, repoxplorer, repoxplorer) %{_var}/log/repoxplorer
 
 %changelog
+* Tue Mar 01 2017 Fabien Boucher <fboucher@redhat.com> - 0.6.2-2
+- Change default config debug state in order to make pecan
+  serves static files. This is to ease deployment. A better
+  solution with a bundled uwsgi config will come soon.
+
 * Mon Feb 20 2017 Fabien Boucher <fboucher@redhat.com> - 0.6.2-1
 - Bump to 0.6.2
 
