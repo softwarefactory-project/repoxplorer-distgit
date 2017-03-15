@@ -1,7 +1,7 @@
 Name:           repoxplorer
-Version:        0.6.2
+Version:        0.7.2
 Release:        2%{?dist}
-Summary:        RepoXplorer is a small stats and charts utility for GIT repositories
+Summary:        RepoXplorer is a stats and charts utility for GIT repositories
 
 License:        ASL 2.0
 URL:            https://github.com/morucci/repoxplorer
@@ -27,9 +27,13 @@ BuildRequires:  systemd
 Buildrequires:  python2-devel
 
 %description
-RepoXplorer is a small stats and charts utility for Git repositories.
-Its main purpose is to ease the visualization of stats for one or more
-project(s) composed of multiple Git repositories.
+RepoXplorer is a stats and charts utility for Git repositories. Its main purpose is to
+ease the visualization of stats for projects composed of one or multiple Git repositories.
+Indeed lot of projects are splitted and have a Git repository by
+components (server, client, library A, ...) and most of classic Git stat tools
+do not handle that. RepoXplorer let's you describe how a project is composed and then
+computes stats across them. RepoXplorer provides a Web user interface based on Bootstrap
+and Jquery to let a user access data easily. It relies on ElasticSearch for its data backend.
 
 %prep
 %autosetup -n %{name}-%{version}
@@ -88,7 +92,19 @@ exit 0
 %attr(-, repoxplorer, repoxplorer) %{_var}/log/repoxplorer
 
 %changelog
-* Tue Mar 01 2017 Fabien Boucher <fboucher@redhat.com> - 0.6.2-2
+* Sun Mar 11 2017 Fabien Boucher <fboucher@redhat.com> - 0.7.2-2
+- Extends static-map search dirs to be compatible with Software Factory
+
+* Sun Mar 11 2017 Fabien Boucher <fboucher@redhat.com> - 0.7.2-1
+- Bump to 0.7.2
+
+* Mon Mar 06 2017 Fabien Boucher <fboucher@redhat.com> - 0.7.1-1
+- Bump to 0.7.1
+
+* Mon Mar 06 2017 Fabien Boucher <fboucher@redhat.com> - 0.7-1
+- Bump to 0.7
+
+* Wed Mar 01 2017 Fabien Boucher <fboucher@redhat.com> - 0.6.2-2
 - Change default config debug state in order to make pecan
   serves static files. This is to ease deployment. A better
   solution with a bundled uwsgi config will come soon.
@@ -116,7 +132,7 @@ exit 0
 * Fri Feb 17 2017 Fabien Boucher - 0.6-3
 - Change default webui listening port to TCP/51000
 
-* Tue Feb 16 2017 Fabien Boucher - 0.6-2
+* Thu Feb 16 2017 Fabien Boucher - 0.6-2
 - Improve package
 
 * Wed Feb 15 2017 Fabien Boucher - 0.6-1
