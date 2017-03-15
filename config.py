@@ -57,7 +57,7 @@ app = {
     'modules': ['repoxplorer'],
     'static_root': '/usr/share/repoxplorer/public',
     'template_path': '/usr/share/repoxplorer/templates',
-    'debug': True,
+    'debug': False,
     'errors': {
         404: '/error/404',
         '__force_dict__': True
