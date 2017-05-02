@@ -1,6 +1,6 @@
 Name:           repoxplorer
 Version:        0.8.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        RepoXplorer is a stats and charts utility for GIT repositories
 
 License:        ASL 2.0
@@ -91,6 +91,9 @@ exit 0
 %attr(-, repoxplorer, repoxplorer) %{_var}/log/repoxplorer
 
 %changelog
+* Tue May 02 2017 Fabien Boucher <fboucher@redhat.com> - 0.8.0-2
+- Again extends static-map search dirs to be compatible with Software Factory
+
 * Wed Apr 12 2017 Fabien Boucher <fboucher@redhat.com> - 0.8.0-1
 - Bump to 0.8.0
 
