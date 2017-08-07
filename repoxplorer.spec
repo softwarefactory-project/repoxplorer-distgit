@@ -1,6 +1,6 @@
 Name:           repoxplorer
-Version:        0.8.0
-Release:        2%{?dist}
+Version:        1.0.1
+Release:        1%{?dist}
 Summary:        RepoXplorer is a stats and charts utility for GIT repositories
 
 License:        ASL 2.0
@@ -49,7 +49,6 @@ mkdir -p %{buildroot}/%{_sysconfdir}/repoxplorer
 mkdir -p %{buildroot}/%{_var}/lib/repoxplorer
 mkdir -p %{buildroot}/%{_var}/log/repoxplorer
 mv %{buildroot}/usr/local/share/repoxplorer %{buildroot}/%{_datadir}/
-rm %{buildroot}/usr/bin/el-*.sh
 rm %{buildroot}/%{_datadir}/repoxplorer/*.yaml
 rm %{buildroot}/%{_datadir}/repoxplorer/config.*
 rm %{buildroot}/%{_datadir}/repoxplorer/repoxplorer.service
@@ -91,6 +90,9 @@ exit 0
 %attr(-, repoxplorer, repoxplorer) %{_var}/log/repoxplorer
 
 %changelog
+* Tue Aug 08 2017 Fabien Boucher <fboucher@redhat.com> - 1.0.1-1
+- Bump to 1.0.1
+
 * Tue May 02 2017 Fabien Boucher <fboucher@redhat.com> - 0.8.0-2
 - Again extends static-map search dirs to be compatible with Software Factory
 
