@@ -1,5 +1,5 @@
 Name:           repoxplorer
-Version:        1.0.2
+Version:        1.2.0
 Release:        1%{?dist}
 Summary:        RepoXplorer is a stats and charts utility for GIT repositories
 
@@ -12,32 +12,38 @@ Source2:        %{name}-webui.service
 Source3:        index.yaml
 Source4:        config.py
 
+Patch1:         0001-Fix-direct-path-to-avoid-pecan-to-http-redirect.patch
+
 BuildArch:      noarch
 
 Requires:       PyYAML
 Requires:       python-pecan
 Requires:       python-crypto
-Requires:       python-dulwich
 Requires:       python-urllib3
 Requires:       python-elasticsearch
-Requires:       uwsgi-plugin-python
+Requires:       python-requests
 Requires:       python-jsonschema
+Requires:       python-gunicorn
 Requires:       pytz
+Requires:       git
 
 BuildRequires:  systemd
 Buildrequires:  python2-devel
 
 %description
-RepoXplorer is a stats and charts utility for Git repositories. Its main purpose is to
-ease the visualization of stats for projects composed of one or multiple Git repositories.
-Indeed lot of projects are splitted and have a Git repository by
-components (server, client, library A, ...) and most of classic Git stat tools
-do not handle that. RepoXplorer let's you describe how a project is composed and then
-computes stats across them. RepoXplorer provides a Web user interface based on Bootstrap
-and Jquery to let a user access data easily. It relies on ElasticSearch for its data backend.
+RepoXplorer is a stats and charts utility for Git repositories.
+Its main purpose is to ease visualization of statistics for projects
+composed of one or multiple Git repositories. Indeed lot of projects
+are splitted and have a Git repository by component (server, client, library A, ...)
+but unfortunately most of the existing Git statistic tools does not
+handle that.
+
+RepoXplorer let's you describe how a project is composed and then computes stats
+across them. RepoXplorer provides a Web UI to browse statistics easily.
+RepoXplorer relies on ElasticSearch for its data backend.
 
 %prep
-%autosetup -n %{name}-%{version}
+%autosetup -n %{name}-%{version} -p1
 
 %build
 %{__python2} setup.py build
@@ -90,6 +96,9 @@ exit 0
 %attr(-, repoxplorer, repoxplorer) %{_var}/log/repoxplorer
 
 %changelog
+* Fri Feb 16 2018 Fabien Boucher <fboucher@redhat.com> - 1.2.0-1
+- Bump to 1.2.0
+
 * Wed Aug 09 2017 Fabien Boucher <fboucher@redhat.com> - 1.0.2-1
 - Bump to 1.0.2
 
