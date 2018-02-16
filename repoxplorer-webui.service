@@ -5,9 +5,7 @@ After=syslog.target
 [Service]
 User=repoxplorer
 Group=repoxplorer
-ExecStart=/usr/sbin/uwsgi --plugin python --http-socket :51000 --pecan /etc/repoxplorer/config.py \
- --static-map /css=/usr/share/repoxplorer/public/css \
- --static-map /javascript=/usr/share/repoxplorer/public/javascript
+ExecStart=/usr/bin/gunicorn_pecan --workers 1 --chdir / -b 0.0.0.0:51000 --name repoxplorer /etc/repoxplorer/config.py
 
 [Install]
 WantedBy=multi-user.target
