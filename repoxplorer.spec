@@ -156,3 +156,4 @@ exit 0
 
 * Wed Feb 15 2017 Fabien Boucher - 0.6-1
 - Initial packaging of release 0.6 of repoXplorer
+# REMOVEME: error caused by commit https://softwarefactory-project.io/
