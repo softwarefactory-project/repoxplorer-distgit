@@ -156,3 +156,4 @@ exit 0
 
 * Wed Feb 15 2017 Fabien Boucher - 0.6-1
 - Initial packaging of release 0.6 of repoXplorer
+# REMOVEME: error caused by commit https://github.com/morucci/repoxplorer/commit/18a3d1b637696560dbeb8eda1fc4d3b668ec47f9
