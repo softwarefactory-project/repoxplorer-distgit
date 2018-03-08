@@ -1,6 +1,6 @@
 Name:           repoxplorer
 Version:        1.2.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        RepoXplorer is a stats and charts utility for GIT repositories
 
 License:        ASL 2.0
@@ -96,6 +96,9 @@ exit 0
 %attr(-, repoxplorer, repoxplorer) %{_var}/log/repoxplorer
 
 %changelog
+* Thu Mar 08 2018 Tristan Cacqueray <tdecacqu@redhat.com> - 1.2.0-2
+- Change webui port to 20002
+
 * Fri Feb 16 2018 Fabien Boucher <fboucher@redhat.com> - 1.2.0-1
 - Bump to 1.2.0
 
