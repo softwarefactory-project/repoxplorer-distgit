@@ -3,9 +3,11 @@ Description=RepoXplorer web ui
 After=syslog.target
 
 [Service]
+Type=simple
 User=repoxplorer
 Group=repoxplorer
-ExecStart=/usr/bin/gunicorn_pecan --workers 1 --chdir / -b 0.0.0.0:51000 --name repoxplorer /etc/repoxplorer/config.py
+SyslogIdentifier=repoxplorer-webui
+ExecStart=/usr/bin/gunicorn_pecan --workers 1 --chdir / -b 0.0.0.0:20002 --name repoxplorer /etc/repoxplorer/config.py
 
 [Install]
 WantedBy=multi-user.target
