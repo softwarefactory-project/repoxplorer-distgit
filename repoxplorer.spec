@@ -1,18 +1,20 @@
+%global commit 54388f12886a89f16f3b19c01ec43a16f085f804
+%global shortcommit %(c=%{commit}; echo ${c:0:7})
+
 Name:           repoxplorer
-Version:        1.2.0
-Release:        2%{?dist}
+Version:        1.3.0
+Release:        1.20180611.%{shortcommit}%{?dist}
 Summary:        RepoXplorer is a stats and charts utility for GIT repositories
 
 License:        ASL 2.0
 URL:            https://github.com/morucci/repoxplorer
-Source0:        https://github.com/morucci/%{name}/archive/%{version}.tar.gz
+Source0:        https://github.com/morucci/%{name}/archive/%{commit}.tar.gz
 
 Source1:        %{name}.service
 Source2:        %{name}-webui.service
 Source3:        index.yaml
 Source4:        config.py
-
-Patch1:         0001-Fix-direct-path-to-avoid-pecan-to-http-redirect.patch
+Source5:        jquery-1.12.4.min.js
 
 BuildArch:      noarch
 
@@ -43,7 +45,7 @@ across them. RepoXplorer provides a Web UI to browse statistics easily.
 RepoXplorer relies on ElasticSearch for its data backend.
 
 %prep
-%autosetup -n %{name}-%{version} -p1
+%autosetup -n repoxplorer-%{commit} -p1
 
 %build
 %{__python2} setup.py build
@@ -63,6 +65,7 @@ install -p -D -m 644 %{SOURCE1} %{buildroot}/%{_unitdir}/%{name}.service
 install -p -D -m 644 %{SOURCE2} %{buildroot}/%{_unitdir}/%{name}-webui.service
 install -p -D -m 644 %{SOURCE3} %{buildroot}/%{_sysconfdir}/%{name}/index.yaml
 install -p -D -m 644 %{SOURCE4} %{buildroot}/%{_sysconfdir}/%{name}/config.py
+install -p -D -m 644 %{SOURCE5} %{buildroot}/%{_datadir}/%{name}/public/javascript/jquery.min.js
 
 %check
 #%{__python2} setup.py nosetests
@@ -96,6 +99,10 @@ exit 0
 %attr(-, repoxplorer, repoxplorer) %{_var}/log/repoxplorer
 
 %changelog
+* Mon Jun 11 2018 Fabien Boucher <fboucher@redhat.com> - 1.3.0-1
+- Bump to a pre-release commit
+- Inlcude a jquery copy as SF bundled one is old and not compatible
+
 * Thu Mar 08 2018 Tristan Cacqueray <tdecacqu@redhat.com> - 1.2.0-2
 - Change webui port to 20002
 
