@@ -1,9 +1,9 @@
-%global commit 54388f12886a89f16f3b19c01ec43a16f085f804
+%global commit f1e0c47ac3901ca7231926f89942ebb783042945
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 
 Name:           repoxplorer
 Version:        1.3.0
-Release:        1.20180611.%{shortcommit}%{?dist}
+Release:        1.20180622.%{shortcommit}%{?dist}
 Summary:        RepoXplorer is a stats and charts utility for GIT repositories
 
 License:        ASL 2.0
@@ -12,7 +12,7 @@ Source0:        https://github.com/morucci/%{name}/archive/%{commit}.tar.gz
 
 Source1:        %{name}.service
 Source2:        %{name}-webui.service
-Source3:        index.yaml
+Source3:        default.yaml
 Source4:        config.py
 Source5:        jquery-1.12.4.min.js
 
@@ -63,7 +63,7 @@ rm %{buildroot}/%{_datadir}/repoxplorer/repoxplorer.service
 rm %{buildroot}/%{_datadir}/repoxplorer/repoxplorer-webui.service
 install -p -D -m 644 %{SOURCE1} %{buildroot}/%{_unitdir}/%{name}.service
 install -p -D -m 644 %{SOURCE2} %{buildroot}/%{_unitdir}/%{name}-webui.service
-install -p -D -m 644 %{SOURCE3} %{buildroot}/%{_sysconfdir}/%{name}/index.yaml
+install -p -D -m 644 %{SOURCE3} %{buildroot}/%{_sysconfdir}/%{name}/default.yaml
 install -p -D -m 644 %{SOURCE4} %{buildroot}/%{_sysconfdir}/%{name}/config.py
 install -p -D -m 644 %{SOURCE5} %{buildroot}/%{_datadir}/%{name}/public/javascript/jquery.min.js
 
@@ -99,6 +99,10 @@ exit 0
 %attr(-, repoxplorer, repoxplorer) %{_var}/log/repoxplorer
 
 %changelog
+* Tue Jun 22 2018 Fabien Boucher <fboucher@redhat.com> - 1.3.0-2
+- Bump to release commit 1.3.0
+- Add default default.yaml file expected by sfconfig
+
 * Mon Jun 11 2018 Fabien Boucher <fboucher@redhat.com> - 1.3.0-1
 - Bump to a pre-release commit
 - Inlcude a jquery copy as SF bundled one is old and not compatible
