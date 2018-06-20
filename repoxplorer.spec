@@ -12,7 +12,7 @@ Source0:        https://github.com/morucci/%{name}/archive/%{commit}.tar.gz
 
 Source1:        %{name}.service
 Source2:        %{name}-webui.service
-Source3:        index.yaml
+Source3:        default.yaml
 Source4:        config.py
 Source5:        jquery-1.12.4.min.js
 
@@ -63,7 +63,7 @@ rm %{buildroot}/%{_datadir}/repoxplorer/repoxplorer.service
 rm %{buildroot}/%{_datadir}/repoxplorer/repoxplorer-webui.service
 install -p -D -m 644 %{SOURCE1} %{buildroot}/%{_unitdir}/%{name}.service
 install -p -D -m 644 %{SOURCE2} %{buildroot}/%{_unitdir}/%{name}-webui.service
-install -p -D -m 644 %{SOURCE3} %{buildroot}/%{_sysconfdir}/%{name}/index.yaml
+install -p -D -m 644 %{SOURCE3} %{buildroot}/%{_sysconfdir}/%{name}/default.yaml
 install -p -D -m 644 %{SOURCE4} %{buildroot}/%{_sysconfdir}/%{name}/config.py
 install -p -D -m 644 %{SOURCE5} %{buildroot}/%{_datadir}/%{name}/public/javascript/jquery.min.js
 
@@ -99,6 +99,10 @@ exit 0
 %attr(-, repoxplorer, repoxplorer) %{_var}/log/repoxplorer
 
 %changelog
+* Tue Jun 20 2018 Fabien Boucher <fboucher@redhat.com> - 1.3.0-2
+- Add default default.yaml file expected by sfconfig
+- Add After elasticsearch.service
+
 * Mon Jun 11 2018 Fabien Boucher <fboucher@redhat.com> - 1.3.0-1
 - Bump to a pre-release commit
 - Inlcude a jquery copy as SF bundled one is old and not compatible

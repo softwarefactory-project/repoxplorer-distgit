@@ -1,6 +1,6 @@
 [Unit]
 Description=RepoXplorer web ui
-After=syslog.target
+After=syslog.target network.target elasticsearch.service
 
 [Service]
 Type=simple
