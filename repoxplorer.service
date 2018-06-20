@@ -1,5 +1,6 @@
 [Unit]
 Description=RepoXplorer indexer daemon
+After=syslog.target network.target elasticsearch.service
 
 [Service]
 User=repoxplorer
