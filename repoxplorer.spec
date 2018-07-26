@@ -1,9 +1,9 @@
-%global commit 97813d93bd1fbf2e8015c0312e9a4a7d1919275e
+%global commit a05b6aff3f469734a9757b6c93446510fb1e68bb
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 
 Name:           repoxplorer
-Version:        1.3.0
-Release:        1.20180712.%{shortcommit}%{?dist}
+Version:        1.3.1
+Release:        1.20180726.%{shortcommit}%{?dist}
 Summary:        RepoXplorer is a stats and charts utility for GIT repositories
 
 License:        ASL 2.0
@@ -99,6 +99,9 @@ exit 0
 %attr(-, repoxplorer, repoxplorer) %{_var}/log/repoxplorer
 
 %changelog
+* Tue Jul 26 2018 Fabien Boucher <fboucher@redhat.com> - 1.3.1-3
+- Bump to last release 1.3.1
+
 * Thu Jul 12 2018 Fabien Boucher <fboucher@redhat.com> - 1.3.0-3
 - Bump to last master
 
