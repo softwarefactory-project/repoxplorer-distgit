@@ -1,9 +1,9 @@
-%global commit a05b6aff3f469734a9757b6c93446510fb1e68bb
+%global commit 286e8c7aaa16a4cdf2249ce0d234ec168d05f3c3
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 
 Name:           repoxplorer
-Version:        1.3.1
-Release:        1.20180726.%{shortcommit}%{?dist}
+Version:        1.4.0
+Release:        1.20181125.%{shortcommit}%{?dist}
 Summary:        RepoXplorer is a stats and charts utility for GIT repositories
 
 License:        ASL 2.0
@@ -56,6 +56,7 @@ mkdir -p %{buildroot}/%{_datadir}/repoxplorer
 mkdir -p %{buildroot}/%{_sysconfdir}/repoxplorer
 mkdir -p %{buildroot}/%{_var}/lib/repoxplorer
 mkdir -p %{buildroot}/%{_var}/log/repoxplorer
+mkdir -p %{buildroot}/%{_var}/cache/repoxplorer
 mv %{buildroot}/usr/local/share/repoxplorer %{buildroot}/%{_datadir}/
 rm %{buildroot}/%{_datadir}/repoxplorer/*.yaml
 rm %{buildroot}/%{_datadir}/repoxplorer/config.*
@@ -95,17 +96,24 @@ exit 0
 %{_bindir}/*
 %{_unitdir}/*
 %config(noreplace) %{_sysconfdir}/*
+%dir %{_var}/lib/repoxplorer
+%dir %{_var}/log/repoxplorer
+%dir %{_var}/cache/repoxplorer
 %attr(-, repoxplorer, repoxplorer) %{_var}/lib/repoxplorer
 %attr(-, repoxplorer, repoxplorer) %{_var}/log/repoxplorer
+%attr(-, repoxplorer, repoxplorer) %{_var}/cache/repoxplorer
 
 %changelog
-* Tue Jul 26 2018 Fabien Boucher <fboucher@redhat.com> - 1.3.1-3
+* Thu Nov 22 2018 Fabien Boucher <fboucher@redhat.com> - 1.4.0-1
+- Bump to last release 1.4.0
+
+* Thu Jul 26 2018 Fabien Boucher <fboucher@redhat.com> - 1.3.1-3
 - Bump to last release 1.3.1
 
 * Thu Jul 12 2018 Fabien Boucher <fboucher@redhat.com> - 1.3.0-3
 - Bump to last master
 
-* Tue Jun 22 2018 Fabien Boucher <fboucher@redhat.com> - 1.3.0-2
+* Fri Jun 22 2018 Fabien Boucher <fboucher@redhat.com> - 1.3.0-2
 - Bump to release commit 1.3.0
 - Add default default.yaml file expected by sfconfig
 
