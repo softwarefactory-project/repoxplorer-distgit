@@ -63,12 +63,14 @@ app = {
 # Additional RepoXplorer configurations
 db_default_file = None
 db_path = '/etc/repoxplorer/'
+db_cache_path = '/var/cache/repoxplorer/'
 git_store = '/var/lib/repoxplorer/git_store'
 xorkey = None
 elasticsearch_host = 'localhost'
 elasticsearch_port = 9200
 elasticsearch_index = 'repoxplorer'
 indexer_loop_delay = 300
+indexer_skip_projects = []
 index_custom_html = ""
 users_endpoint = False
 admin_token = 'admin_token'
