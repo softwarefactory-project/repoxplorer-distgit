@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "85493b58_abddd197",
+        "filename": "repoxplorer.spec",
+        "patchSetId": 8
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 7
+      },
+      "writtenOn": "2018-11-26T09:09:50Z",
+      "side": 1,
+      "message": "You should set \u0027%dir\u0027 before those, since the rpm only define directories, not their eventual content.",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 60
+      },
+      "revId": "7bbadaa8500eeadbff7480eb61ae9b4b1cfc7a0c",
+      "serverId": "6c1dc8ef-8b94-40e4-bd83-c2359d45ecc0",
+      "unresolved": false
+    }
+  ]
+}
